@@ -16,8 +16,27 @@ john-8doe01@hotmail.co
 johndoe01@icloud.com
 */
 function validEmailPattern(email) {
-  const emailRegex = /^[a-zA-Z0-9]!#\$%&\'\*\+-\/=\?\^_\`\{\|\}~@[]$/;
+  const emailRegex =
+    /^[a-zA-Z0-9]+(\.?\+?-*)?\d*\w*@(\w+\d*)+(-*\w*\d*)?((\.){1}\d*\w+)+$/;
+
+  const test = emailRegex.test(email);
+  if (test) {
+    console.log("✅");
+  } else {
+    console.log("❌");
+  }
 }
+
+validEmailPattern("john.doe@example.com");
+validEmailPattern("user+mailbox@sub.domain.org");
+validEmailPattern("admin@mail-server.co.uk");
+validEmailPattern("first.last@iana.org");
+validEmailPattern("name@123.456.789.123");
+validEmailPattern("nice_email@localhost");
+validEmailPattern("username@.com");
+validEmailPattern(".username@yahoo.com");
+validEmailPattern("user@@gmail.com");
+validEmailPattern("email@-example.com");
 
 /*
 
